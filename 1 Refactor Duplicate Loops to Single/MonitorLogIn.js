@@ -94,9 +94,6 @@ $(function() {
             });
         }
         var thismonthtotalUser = result.length;
-        $("#Newmonthlytotal").append(monthlytotal);     
-   		$("#NewthismonthtotalUser").append(thismonthtotalUser);
-
 
         var lastmonthfirstDay = new Date(y, m - 1, 1);
         var lastmonthlastDay = new Date(y, m, 0);
@@ -168,7 +165,7 @@ $(function() {
         var end = new Date();
         end.setHours(23, 59, 59, 999);
         
-        var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate < end && a.latestDate > start);
+        var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > start && a.latestDate < end);
         var todaytotal = 0;
         if (result.length) {
             result.forEach(function (data) {
