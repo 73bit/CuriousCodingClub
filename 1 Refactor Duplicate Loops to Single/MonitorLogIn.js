@@ -52,20 +52,9 @@ $(function() {
         var todayentry = [];
         if (output.length) {
             for (var i = 0; i < output.length; i++) {
-                if (output[i]["datefield"] < end && output[i]["datefield"] > start) {                    
-                    var exist=0;
-                    for(var j=0; j<todayentry.length; j++) {
-                        if(todayentry[j].email == output[i][groupBy])
-                        {
-                            var value=todayentry[j].count;
-                            exist=1;
-                            todayentry[j].count=value+1;
-                            break;
-                        }
-                    }
-                    if(!exist)
-                        todayentry.push({"email":output[i][groupBy],"count":0});
-                }
+                if (output[i]["datefield"] < end && output[i]["datefield"] > start) {
+                    todayentry.push(output[i]);
+                }                
             }
         }
 
