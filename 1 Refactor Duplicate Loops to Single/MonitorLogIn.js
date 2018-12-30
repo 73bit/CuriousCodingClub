@@ -208,7 +208,7 @@ $(function() {
    $("#last2monthtotalUser").append(last2monthtotalUser);
    $("#todaytotal").append(sum(todayentry));   
    $("#totalCount").append(total);
-   $("#totalemail").append(result.length+1); 
+   $("#totalUser").append(result.length); 
 
    if(totalentry.length){ for (var i = 0; i < totalentry.length; i++) {
 		 var resultRow = "<tr>";
