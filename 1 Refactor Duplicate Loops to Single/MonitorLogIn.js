@@ -85,9 +85,6 @@ $(function() {
         }
         var todayUser = result.length;
 
-        $("#Newtodaytotal").append(todaytotal);
-        $("#todaytotalUser").append(todayUser);
-
         var totalentry = [];
         if (output.length) {
             for (var i = 0; i < output.length; i++) {
@@ -226,7 +223,8 @@ $(function() {
    $("#lastmonthtotalUser").append(lastmonthtotalUser); 
    $("#last2monthtotal").append(sum(last2monthentry));
    $("#last2monthtotalUser").append(last2monthtotalUser);
-   $("#todaytotal").append(sum(todayentry));   
+   $("#todaytotal").append(todaytotal);
+   $("#todaytotalUser").append(todayUser);
    $("#totalCount").append(total);
    $("#totalUser").append(totalUser); 
 
