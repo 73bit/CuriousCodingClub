@@ -77,7 +77,16 @@ $(function() {
         }
 
         var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate < end && a.latestDate > start);
-        $("#Newtodaytotal").append(result.length);
+        var todaytotal = 0;
+        if (result.length) {
+            result.forEach(function (data) {
+                todaytotal += data.value;
+            });
+        }
+        var todayUser = result.length;
+
+        $("#Newtodaytotal").append(todaytotal);
+        $("#todaytotalUser").append(todayUser);
 
         var totalentry = [];
         if (output.length) {
