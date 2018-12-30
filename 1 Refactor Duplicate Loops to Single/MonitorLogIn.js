@@ -76,6 +76,9 @@ $(function() {
             }
         }
 
+        var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate < end && a.latestDate > start);
+        $("#Newtodaytotal").append(result.length);
+
         var totalentry = [];
         if (output.length) {
             for (var i = 0; i < output.length; i++) {
@@ -163,7 +166,7 @@ $(function() {
                 }
             }
         }
-        
+
         var lastmonthtotalUser=0;
         if(lastmonthentry.length)
         {
