@@ -24,14 +24,19 @@ $(function() {
 
         //Counting occurence of all email Login
         var occurences = new_data.reduce(function (r, row) {
-            r[row.Email] = ++r[row.Email] || 1;
+            if (!(r[row.Email] instanceof Array)) {
+                r[row.Email] = [];
+                r[row.Email].push(row.datefield);
+            }
+            else
+                r[row.Email].push(row.datefield);
             return r;
         }, {});
 
         result = Object.keys(occurences).map(function (key) {
             return {
                 key: key,
-                value: occurences[key]
+                value: occurences[key].length
             };
         });
 
