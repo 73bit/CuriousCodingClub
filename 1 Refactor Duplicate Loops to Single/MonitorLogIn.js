@@ -48,42 +48,7 @@ $(function() {
                 total += data.value;
             });
         }
-        totalUser = result.length;
-
-        //Getting today total count
-        var start = new Date();
-        start.setHours(0, 0, 0, 0);
-
-        var end = new Date();
-        end.setHours(23, 59, 59, 999);
-        var todayentry = [];
-        if (output.length) {
-            for (var i = 0; i < output.length; i++) {
-                if (output[i]["datefield"] < end && output[i]["datefield"] > start) {
-                    var exist=0;
-                    for(var j=0; j<todayentry.length; j++) {
-                        if(todayentry[j].email == output[i][groupBy])
-                        {
-                            var value=todayentry[j].count;
-                            exist=1;
-                            todayentry[j].count=value+1;
-                            break;
-                        }
-                    }
-                    if(!exist)
-                        todayentry.push({"email":output[i][groupBy],"count":0});
-                }                
-            }
-        }
-
-        var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate < end && a.latestDate > start);
-        var todaytotal = 0;
-        if (result.length) {
-            result.forEach(function (data) {
-                todaytotal += data.value;
-            });
-        }
-        var todayUser = result.length;
+        totalUser = result.length;        
 
         var totalentry = [];
         if (output.length) {
@@ -212,6 +177,22 @@ $(function() {
                     last2monthtotalUser+=1;
             }
         }
+
+        //Getting today total count
+        var start = new Date();
+        start.setHours(0, 0, 0, 0);
+
+        var end = new Date();
+        end.setHours(23, 59, 59, 999);
+        
+        var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate < end && a.latestDate > start);
+        var todaytotal = 0;
+        if (result.length) {
+            result.forEach(function (data) {
+                todaytotal += data.value;
+            });
+        }
+        var todayUser = result.length;
 
         totalentry.sort(function(a,b){
             return b.db_date-a.db_date;
