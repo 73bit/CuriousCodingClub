@@ -116,15 +116,15 @@ $(function() {
         }
 
         var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > firstDay && a.latestDate < lastDay);
-        var Newmonthlytotal = 0;
+        var monthlytotal = 0;
         if (result.length) {
             result.forEach(function (data) {
-                Newmonthlytotal += data.value;
+                monthlytotal += data.value;
             });
         }
-        var NewthismonthtotalUser = result.length;
-        $("#Newmonthlytotal").append(Newmonthlytotal);     
-   		$("#NewthismonthtotalUser").append(NewthismonthtotalUser);
+        var thismonthtotalUser = result.length;
+        $("#Newmonthlytotal").append(monthlytotal);     
+   		$("#NewthismonthtotalUser").append(thismonthtotalUser);
 
 
         var lastmonthfirstDay = new Date(y, m - 1, 1);
@@ -210,7 +210,7 @@ $(function() {
             return b.db_date-a.db_date;
         });
    
-   $("#monthlytotal").append(sum(monthentry));     
+   $("#monthlytotal").append(monthlytotal);     
    $("#monthlytotalUser").append(thismonthtotalUser);
    $("#lastmonthtotal").append(sum(lastmonthentry));     
    $("#lastmonthtotalUser").append(lastmonthtotalUser); 
