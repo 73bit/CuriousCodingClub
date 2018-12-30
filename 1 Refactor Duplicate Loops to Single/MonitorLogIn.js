@@ -36,7 +36,8 @@ $(function() {
         result = Object.keys(occurences).map(function (key) {
             return {
                 key: key,
-                value: occurences[key].length
+                value: occurences[key].length,
+                latestDate: occurences[key][occurences[key].length - 1]
             };
         });
 
