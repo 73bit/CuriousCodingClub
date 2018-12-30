@@ -42,6 +42,7 @@ $(function() {
                 total += data.value;
             });
         }
+        totalUser = result.length;
 
         //Getting today total count
         var start = new Date();
@@ -208,7 +209,7 @@ $(function() {
    $("#last2monthtotalUser").append(last2monthtotalUser);
    $("#todaytotal").append(sum(todayentry));   
    $("#totalCount").append(total);
-   $("#totalUser").append(result.length); 
+   $("#totalUser").append(totalUser); 
 
    if(totalentry.length){ for (var i = 0; i < totalentry.length; i++) {
 		 var resultRow = "<tr>";
