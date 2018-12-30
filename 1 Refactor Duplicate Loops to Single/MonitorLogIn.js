@@ -85,36 +85,7 @@ $(function() {
         var date = new Date(), y = date.getFullYear(), m = date.getMonth();
         var firstDay = new Date(y, m, 1);
         var lastDay = new Date(y, m + 1, 0);
-        var monthentry = [];
-        if (output.length) {
-            for (var i = 0; i < output.length; i++) {
-                if(output[i]["datefield"]>firstDay && output[i]["datefield"]<lastDay)
-                {
-                    var exist=0;
-                    for(var j=0; j<monthentry.length; j++) {
-                        if(monthentry[j].email == output[i][groupBy])
-                        {
-                            var value=monthentry[j].count;
-                            exist=1;
-                            monthentry[j].count=value+1;
-                            break;
-                        }
-                    }
-                    if(!exist)
-                        monthentry.push({"email":output[i][groupBy],"count":0});
-                }
-            }
-        }
-
-        var thismonthtotalUser=0;
-        if(monthentry.length)
-        {
-            for (var i = 0; i < monthentry.length; i++) {
-                if(monthentry[i].count)
-                    thismonthtotalUser+=1;
-            }
-        }
-
+        
         var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > firstDay && a.latestDate < lastDay);
         var monthlytotal = 0;
         if (result.length) {
