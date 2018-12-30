@@ -51,11 +51,11 @@ $(function() {
         end.setHours(23, 59, 59, 999);
         var todayentry = [];
         if (output.length) {
-            output.forEach(function (data) {
-                if (data.datefield < end && data.datefield > start) {
+            for (var i = 0; i < output.length; i++) {
+                if (output[i]["datefield"] < end && output[i]["datefield"] > start) {
                     todayentry.push(data);
                 }
-            });
+            }
         }
 
         var totalentry = [];
