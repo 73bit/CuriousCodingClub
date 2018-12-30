@@ -163,6 +163,7 @@ $(function() {
                 }
             }
         }
+        
         var lastmonthtotalUser=0;
         if(lastmonthentry.length)
         {
