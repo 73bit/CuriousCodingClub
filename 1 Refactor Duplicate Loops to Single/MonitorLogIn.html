@@ -12,15 +12,42 @@
 <body>
   <div class="container">
   <h2>Monitor User LogIn</h2>
-    <p id="monthlytotal">This Month Total Login Count : </p>
-    <p id="monthlytotalUser">This Month Total Unique User : </p>
-    <p id="lastmonthtotal">Last Month Total Login Count : </p>
-    <p id="lastmonthtotalUser">Last Month Total User : </p>
-    <p id="last2monthtotal">Last 2 Month Total Login Count : </p>
-    <p id="last2monthtotalUser">Last 2 Month Total Unique User : </p>
-    <p id="todaytotal">Today Total Login Count : </p>  
-    <p id="totalCount">Total Login Count : </p>
-    <p id="totalemail">Total Unique User : </p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Timeline</th>
+        <th>Count</th>
+        <th>Unique Users</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td>Today</td>
+      <td id="todaytotal"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>This month</td>
+      <td id="monthlytotal"></td>
+      <td id="monthlytotalUser"></td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td id="totalCount"></td>
+      <td id="totalemail"></td>
+    </tr>
+    <tr>
+      <td>1 month ago</td>
+      <td id="lastmonthtotal"></td>
+      <td id="lastmonthtotalUser"></td>
+    </tr>
+    <tr>
+      <td>2 month ago</td>
+      <td id="last2monthtotal"></td>
+      <td id="last2monthtotalUser"></td>
+    </tr>
+  </tbody>
+  </table>
 
     <table class="table">
       <thead>
