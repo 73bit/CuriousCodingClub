@@ -193,8 +193,8 @@ $(function() {
    
    $("#monthlytotal").append(monthlytotal);     
    $("#monthlytotalUser").append(thismonthtotalUser);
-   $("#lastmonthtotal").append(sum(lastmonthentry));     
-   $("#lastmonthtotalUser").append(lastmonthtotalUser); 
+   $("#lastmonthtotal").append(lastmonthlytotal);     
+   $("#lastmonthtotalUser").append(NewlastmonthtotalUser); 
    $("#last2monthtotal").append(sum(last2monthentry));
    $("#last2monthtotalUser").append(last2monthtotalUser);
    $("#todaytotal").append(todaytotal);
