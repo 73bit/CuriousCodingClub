@@ -88,15 +88,13 @@ $(function() {
         var lastmonthlastDay = new Date(y, m, 0);
 
         var lastmonthresult = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > lastmonthfirstDay && a.latestDate < lastmonthlastDay);
-        var lastmonthlytotal = 0;
+        var lastmonthtotal = 0;
         if (lastmonthresult.length) {
             lastmonthresult.forEach(function (data) {
-                lastmonthlytotal += data.value;
+                lastmonthtotal += data.value;
             });
         }        
-        var NewlastmonthtotalUser = lastmonthresult.length;
-        $("#Newlastmonthtotal").append(lastmonthlytotal);     
-        $("#NewlastmonthtotalUser").append(NewlastmonthtotalUser); 
+        var lastmonthtotalUser = lastmonthresult.length;
 
         var last2monthfirstDay = new Date(y, m - 2, 1);
         var last2monthlastDay = new Date(y, m - 1, 0);
@@ -164,8 +162,8 @@ $(function() {
    
    $("#monthlytotal").append(monthlytotal);     
    $("#monthlytotalUser").append(thismonthtotalUser);
-   $("#lastmonthtotal").append(lastmonthlytotal);     
-   $("#lastmonthtotalUser").append(NewlastmonthtotalUser); 
+   $("#lastmonthtotal").append(lastmonthtotal);     
+   $("#lastmonthtotalUser").append(lastmonthtotalUser); 
    $("#last2monthtotal").append(sum(last2monthentry));
    $("#last2monthtotalUser").append(last2monthtotalUser);
    $("#todaytotal").append(todaytotal);
