@@ -116,6 +116,17 @@ $(function() {
             }
         }
 
+        var lastmonthresult = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > lastmonthfirstDay && a.latestDate < lastmonthlastDay);
+        var lastmonthlytotal = 0;
+        if (lastmonthresult.length) {
+            lastmonthresult.forEach(function (data) {
+                lastmonthlytotal += data.value;
+            });
+        }        
+        var NewlastmonthtotalUser = lastmonthresult.length;
+        $("#Newlastmonthtotal").append(lastmonthlytotal);     
+        $("#NewlastmonthtotalUser").append(NewlastmonthtotalUser); 
+
         var last2monthfirstDay = new Date(y, m - 2, 1);
         var last2monthlastDay = new Date(y, m - 1, 0);
         var last2monthentry = [];
