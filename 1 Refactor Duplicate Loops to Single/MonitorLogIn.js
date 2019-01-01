@@ -86,35 +86,6 @@ $(function() {
 
         var lastmonthfirstDay = new Date(y, m - 1, 1);
         var lastmonthlastDay = new Date(y, m, 0);
-        var lastmonthentry = [];
-        if (output.length) {
-            for (var i = 0; i < output.length; i++) {
-                if(output[i]["datefield"]>lastmonthfirstDay && output[i]["datefield"]<lastmonthlastDay)
-                {
-                    var exist=0;
-                    for(var j=0; j<lastmonthentry.length; j++) {
-                        if(lastmonthentry[j].email == output[i][groupBy])
-                        {
-                            var value=lastmonthentry[j].count;
-                            exist=1;
-                            lastmonthentry[j].count=value+1;
-                            break;
-                        }
-                    }
-                    if(!exist)
-                        lastmonthentry.push({"email":output[i][groupBy],"count":0});
-                }
-            }
-        }
-
-        var lastmonthtotalUser=0;
-        if(lastmonthentry.length)
-        {
-            for (var i = 0; i < lastmonthentry.length; i++) {
-                if(lastmonthentry[i].count)
-                    lastmonthtotalUser+=1;
-            }
-        }
 
         var lastmonthresult = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > lastmonthfirstDay && a.latestDate < lastmonthlastDay);
         var lastmonthlytotal = 0;
