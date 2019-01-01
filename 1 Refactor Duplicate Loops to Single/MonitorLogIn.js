@@ -83,17 +83,6 @@ $(function() {
         };
 
         var date = new Date(), y = date.getFullYear(), m = date.getMonth();
-        var firstDay = new Date(y, m, 1);
-        var lastDay = new Date(y, m + 1, 0);
-        
-        var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > firstDay && a.latestDate < lastDay);
-        var monthlytotal = 0;
-        if (result.length) {
-            result.forEach(function (data) {
-                monthlytotal += data.value;
-            });
-        }
-        var thismonthtotalUser = result.length;
 
         var lastmonthfirstDay = new Date(y, m - 1, 1);
         var lastmonthlastDay = new Date(y, m, 0);
@@ -157,6 +146,19 @@ $(function() {
                     last2monthtotalUser+=1;
             }
         }
+
+        //This months count
+        var firstDay = new Date(y, m, 1);
+        var lastDay = new Date(y, m + 1, 0);
+        
+        var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > firstDay && a.latestDate < lastDay);
+        var monthlytotal = 0;
+        if (result.length) {
+            result.forEach(function (data) {
+                monthlytotal += data.value;
+            });
+        }
+        var thismonthtotalUser = result.length;
 
         //Getting today total count
         var start = new Date();
