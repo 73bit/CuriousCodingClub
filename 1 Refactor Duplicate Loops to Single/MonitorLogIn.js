@@ -87,7 +87,7 @@ $(function() {
         var thismonthresult = FilteredResults(result,new Date(y, m - 0, 1),new Date(y, m + 1, 0));
         var monthlytotal = GetTotalCount(thismonthresult);
 
-        var lastmonthresult = FilteredResults(result,new Date(y, m - 1, 1),new Date(y, m, 0));
+        var lastmonthresult = FilteredResults(result,new Date(y, m - 1, 1),new Date(y, m + 0, 0));
         var lastmonthtotal = GetTotalCount(lastmonthresult);
 
         var last2monthresult = FilteredResults(result,new Date(y, m - 2, 1),new Date(y, m - 1, 0));
