@@ -84,16 +84,16 @@ $(function() {
 
         var date = new Date(), y = date.getFullYear(), m = date.getMonth();
 
-        var lastmonthresult = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > new Date(y, m - 1, 1) && a.latestDate < new Date(y, m, 0));
+        var lastmonthresult = FilteredResults(result,new Date(y, m - 1, 1),new Date(y, m, 0));
         var lastmonthtotal = GetTotalCount(lastmonthresult);
         var lastmonthtotalUser = lastmonthresult.length;
 
-        var last2monthresult = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > new Date(y, m - 2, 1) && a.latestDate < new Date(y, m - 1, 0));
+        var last2monthresult = FilteredResults(result,new Date(y, m - 2, 1),new Date(y, m - 1, 0));
         var last2monthtotal = GetTotalCount(last2monthresult);
         var last2monthtotalUser = last2monthresult.length;
 
         //This months count
-        var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > new Date(y, m, 1) && a.latestDate < new Date(y, m + 1, 0));
+        var result = FilteredResults(result,new Date(y, m, 1),new Date(y, m + 1, 0));
         var monthlytotal = GetTotalCount(result);
         var thismonthtotalUser = result.length;
 
@@ -144,4 +144,9 @@ function GetTotalCount(results)
         });
     }
     return total;
+}
+
+function FilteredResults(result, startDate, endDate)
+{
+    return result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > startDate && a.latestDate < endDate);
 }
