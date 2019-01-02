@@ -106,10 +106,7 @@ $(function() {
                 last2monthtotal += data.value;
             });
         }        
-        var Newlast2monthtotalUser = last2monthresult.length;
-
-        $("#Newlast2monthtotal").append(last2monthtotal);
-        $("#Newlast2monthtotalUser").append(Newlast2monthtotalUser);
+        var last2monthtotalUser = last2monthresult.length;
 
         //This months count
         var firstDay = new Date(y, m, 1);
@@ -149,7 +146,7 @@ $(function() {
    $("#lastmonthtotal").append(lastmonthtotal);     
    $("#lastmonthtotalUser").append(lastmonthtotalUser); 
    $("#last2monthtotal").append(last2monthtotal);
-   $("#last2monthtotalUser").append(Newlast2monthtotalUser);
+   $("#last2monthtotalUser").append(last2monthtotalUser);
    $("#todaytotal").append(todaytotal);
    $("#todaytotalUser").append(todayUser);
    $("#totalCount").append(total);
