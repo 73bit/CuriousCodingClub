@@ -98,35 +98,7 @@ $(function() {
 
         var last2monthfirstDay = new Date(y, m - 2, 1);
         var last2monthlastDay = new Date(y, m - 1, 0);
-        var last2monthentry = [];
-        if (output.length) {
-            for (var i = 0; i < output.length; i++) {
-                if(output[i]["datefield"]>last2monthfirstDay && output[i]["datefield"]<last2monthlastDay)
-                {
-                    var exist=0;
-                    for(var j=0; j<last2monthentry.length; j++) {
-                        if(last2monthentry[j].email == output[i][groupBy])
-                        {
-                            var value=last2monthentry[j].count;
-                            exist=1;
-                            last2monthentry[j].count=value+1;
-                            break;
-                        }
-                    }
-                    if(!exist)
-                        last2monthentry.push({"email":output[i][groupBy],"count":0});
-                }
-            }
-        }
-        var last2monthtotalUser=0;
-        if(last2monthentry.length)
-        {
-            for (var i = 0; i < last2monthentry.length; i++) {
-                if(last2monthentry[i].count)
-                    last2monthtotalUser+=1;
-            }
-        }
-
+        
         var last2monthresult = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > last2monthfirstDay && a.latestDate < last2monthlastDay);
         var last2monthtotal = 0;
         if (last2monthresult.length) {
