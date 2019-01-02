@@ -99,10 +99,7 @@ $(function() {
         var last2monthtotalUser = last2monthresult.length;
 
         //This months count
-        var firstDay = new Date(y, m, 1);
-        var lastDay = new Date(y, m + 1, 0);
-        
-        var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > firstDay && a.latestDate < lastDay);
+        var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > new Date(y, m, 1) && a.latestDate < new Date(y, m + 1, 0));
         var monthlytotal = GetTotalCount(result);
         var thismonthtotalUser = result.length;
 
