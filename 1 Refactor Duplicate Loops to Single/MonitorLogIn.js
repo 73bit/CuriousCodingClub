@@ -163,13 +163,3 @@ $(function() {
  	} }
 
 });
-
-function sum( obj ) {
-  var sum = 0;
-  for(var i=0; i<obj.length; i++) {
-    if(obj[i]) {
-      sum += parseFloat( obj[i].count );
-    }
-  }
-  return sum;
-}
