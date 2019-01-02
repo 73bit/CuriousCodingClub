@@ -84,7 +84,7 @@ $(function() {
 
         var date = new Date(), y = date.getFullYear(), m = date.getMonth();
 
-        var thismonthresult = FilteredResults(result,new Date(y, m, 1),new Date(y, m + 1, 0));
+        var thismonthresult = FilteredResults(result,new Date(y, m - 0, 1),new Date(y, m + 1, 0));
         var monthlytotal = GetTotalCount(thismonthresult);
 
         var lastmonthresult = FilteredResults(result,new Date(y, m - 1, 1),new Date(y, m, 0));
