@@ -176,8 +176,8 @@ $(function() {
    $("#monthlytotalUser").append(thismonthtotalUser);
    $("#lastmonthtotal").append(lastmonthtotal);     
    $("#lastmonthtotalUser").append(lastmonthtotalUser); 
-   $("#last2monthtotal").append(sum(last2monthentry));
-   $("#last2monthtotalUser").append(last2monthtotalUser);
+   $("#last2monthtotal").append(last2monthtotal);
+   $("#last2monthtotalUser").append(Newlast2monthtotalUser);
    $("#todaytotal").append(todaytotal);
    $("#todaytotalUser").append(todayUser);
    $("#totalCount").append(total);
