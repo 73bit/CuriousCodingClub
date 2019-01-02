@@ -125,6 +125,15 @@ $(function() {
    $("#totalCount").append(total);
    $("#totalUser").append(totalUser);
 
+    if(MonthWiseReport.length){ for (var i = 0; i < MonthWiseReport.length; i++) {
+         var resultRow = "<tr>";
+                resultRow += "<td>" + MonthWiseReport[i].label + "</td>";
+                resultRow += "<td>" + MonthWiseReport[i].count + "</td>";
+                resultRow += "<td>" + MonthWiseReport[i].user + "</td>";
+            resultRow += "</tr>";
+         $("#MonitorSummary").append(resultRow);
+    } }
+
    if(totalentry.length){ for (var i = 0; i < totalentry.length; i++) {
 		 var resultRow = "<tr>";
 		 	    resultRow += "<td>" + eval(i + 1) + "</td>";
