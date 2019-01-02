@@ -86,16 +86,13 @@ $(function() {
 
         var lastmonthresult = FilteredResults(result,new Date(y, m - 1, 1),new Date(y, m, 0));
         var lastmonthtotal = GetTotalCount(lastmonthresult);
-        var lastmonthtotalUser = lastmonthresult.length;
 
         var last2monthresult = FilteredResults(result,new Date(y, m - 2, 1),new Date(y, m - 1, 0));
         var last2monthtotal = GetTotalCount(last2monthresult);
-        var last2monthtotalUser = last2monthresult.length;
 
         //This months count
-        var result = FilteredResults(result,new Date(y, m, 1),new Date(y, m + 1, 0));
-        var monthlytotal = GetTotalCount(result);
-        var thismonthtotalUser = result.length;
+        var thismonthresult = FilteredResults(result,new Date(y, m, 1),new Date(y, m + 1, 0));
+        var monthlytotal = GetTotalCount(thismonthresult);
 
         //Getting today total count
         var start = new Date();
@@ -113,11 +110,11 @@ $(function() {
         });
    
    $("#monthlytotal").append(monthlytotal);     
-   $("#monthlytotalUser").append(thismonthtotalUser);
+   $("#monthlytotalUser").append(thismonthresult.length);
    $("#lastmonthtotal").append(lastmonthtotal);     
-   $("#lastmonthtotalUser").append(lastmonthtotalUser); 
+   $("#lastmonthtotalUser").append(lastmonthresult.length); 
    $("#last2monthtotal").append(last2monthtotal);
-   $("#last2monthtotalUser").append(last2monthtotalUser);
+   $("#last2monthtotalUser").append(last2monthresult.length);
    $("#todaytotal").append(todaytotal);
    $("#todaytotalUser").append(todayUser);
    $("#totalCount").append(total);
