@@ -84,17 +84,11 @@ $(function() {
 
         var date = new Date(), y = date.getFullYear(), m = date.getMonth();
 
-        var lastmonthfirstDay = new Date(y, m - 1, 1);
-        var lastmonthlastDay = new Date(y, m, 0);
-
-        var lastmonthresult = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > lastmonthfirstDay && a.latestDate < lastmonthlastDay);
+        var lastmonthresult = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > new Date(y, m - 1, 1) && a.latestDate < new Date(y, m, 0));
         var lastmonthtotal = GetTotalCount(lastmonthresult);
         var lastmonthtotalUser = lastmonthresult.length;
 
-        var last2monthfirstDay = new Date(y, m - 2, 1);
-        var last2monthlastDay = new Date(y, m - 1, 0);
-        
-        var last2monthresult = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > last2monthfirstDay && a.latestDate < last2monthlastDay);
+        var last2monthresult = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > new Date(y, m - 2, 1) && a.latestDate < new Date(y, m - 1, 0));
         var last2monthtotal = GetTotalCount(last2monthresult);
         var last2monthtotalUser = last2monthresult.length;
 
