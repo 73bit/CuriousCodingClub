@@ -91,7 +91,13 @@ $(function() {
         var lastmonthtotal = GetTotalCount(lastmonthresult);
 
         var last2monthresult = FilteredResults(result,new Date(y, m - 2, 1),new Date(y, m - 1, 0));
-        var last2monthtotal = GetTotalCount(last2monthresult);        
+        var last2monthtotal = GetTotalCount(last2monthresult);
+
+        var MonthWiseReport = [];
+        for (var i = 0; i < 3; i++) {
+            var downloadresult = FilteredResults(result, new Date(y, m - i, 1), new Date(y, m - (i - 1)));
+            MonthWiseReport.push({ "label": i + ' month(s) ago', "count": GetTotalCount(downloadresult), "user": downloadresult.length });
+        }
 
         //Getting today total count
         var start = new Date();
@@ -117,7 +123,7 @@ $(function() {
    $("#todaytotal").append(todaytotal);
    $("#todaytotalUser").append(todayUser);
    $("#totalCount").append(total);
-   $("#totalUser").append(totalUser); 
+   $("#totalUser").append(totalUser);
 
    if(totalentry.length){ for (var i = 0; i < totalentry.length; i++) {
 		 var resultRow = "<tr>";
