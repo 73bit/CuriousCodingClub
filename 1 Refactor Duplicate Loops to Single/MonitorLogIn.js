@@ -88,24 +88,14 @@ $(function() {
         var lastmonthlastDay = new Date(y, m, 0);
 
         var lastmonthresult = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > lastmonthfirstDay && a.latestDate < lastmonthlastDay);
-        var lastmonthtotal = 0;
-        if (lastmonthresult.length) {
-            lastmonthresult.forEach(function (data) {
-                lastmonthtotal += data.value;
-            });
-        }        
+        var lastmonthtotal = GetTotalCount(lastmonthresult);
         var lastmonthtotalUser = lastmonthresult.length;
 
         var last2monthfirstDay = new Date(y, m - 2, 1);
         var last2monthlastDay = new Date(y, m - 1, 0);
         
         var last2monthresult = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > last2monthfirstDay && a.latestDate < last2monthlastDay);
-        var last2monthtotal = 0;
-        if (last2monthresult.length) {
-            last2monthresult.forEach(function (data) {
-                last2monthtotal += data.value;
-            });
-        }        
+        var last2monthtotal = GetTotalCount(last2monthresult);
         var last2monthtotalUser = last2monthresult.length;
 
         //This months count
@@ -113,12 +103,7 @@ $(function() {
         var lastDay = new Date(y, m + 1, 0);
         
         var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > firstDay && a.latestDate < lastDay);
-        var monthlytotal = 0;
-        if (result.length) {
-            result.forEach(function (data) {
-                monthlytotal += data.value;
-            });
-        }
+        var monthlytotal = GetTotalCount(result);
         var thismonthtotalUser = result.length;
 
         //Getting today total count
