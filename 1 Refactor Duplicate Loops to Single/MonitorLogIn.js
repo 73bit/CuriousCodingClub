@@ -84,15 +84,14 @@ $(function() {
 
         var date = new Date(), y = date.getFullYear(), m = date.getMonth();
 
+        var thismonthresult = FilteredResults(result,new Date(y, m, 1),new Date(y, m + 1, 0));
+        var monthlytotal = GetTotalCount(thismonthresult);
+
         var lastmonthresult = FilteredResults(result,new Date(y, m - 1, 1),new Date(y, m, 0));
         var lastmonthtotal = GetTotalCount(lastmonthresult);
 
         var last2monthresult = FilteredResults(result,new Date(y, m - 2, 1),new Date(y, m - 1, 0));
-        var last2monthtotal = GetTotalCount(last2monthresult);
-
-        //This months count
-        var thismonthresult = FilteredResults(result,new Date(y, m, 1),new Date(y, m + 1, 0));
-        var monthlytotal = GetTotalCount(thismonthresult);
+        var last2monthtotal = GetTotalCount(last2monthresult);        
 
         //Getting today total count
         var start = new Date();
