@@ -127,6 +127,18 @@ $(function() {
             }
         }
 
+        var last2monthresult = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > last2monthfirstDay && a.latestDate < last2monthlastDay);
+        var last2monthtotal = 0;
+        if (last2monthresult.length) {
+            last2monthresult.forEach(function (data) {
+                last2monthtotal += data.value;
+            });
+        }        
+        var Newlast2monthtotalUser = last2monthresult.length;
+
+        $("#Newlast2monthtotal").append(last2monthtotal);
+        $("#Newlast2monthtotalUser").append(Newlast2monthtotalUser);
+
         //This months count
         var firstDay = new Date(y, m, 1);
         var lastDay = new Date(y, m + 1, 0);
