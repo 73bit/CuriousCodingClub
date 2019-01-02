@@ -129,12 +129,7 @@ $(function() {
         end.setHours(23, 59, 59, 999);
         
         var result = result.sort((a, b) => a.value - b.value).filter(a => a.latestDate > start && a.latestDate < end);
-        var todaytotal = 0;
-        if (result.length) {
-            result.forEach(function (data) {
-                todaytotal += data.value;
-            });
-        }
+        var todaytotal = GetTotalCount(result);
         var todayUser = result.length;
 
         totalentry.sort(function(a,b){
@@ -163,3 +158,14 @@ $(function() {
  	} }
 
 });
+
+function GetTotalCount(results)
+{
+    var total = 0;
+    if (results.length) {
+        results.forEach(function (data) {
+            total += data.value;
+        });
+    }
+    return total;
+}
