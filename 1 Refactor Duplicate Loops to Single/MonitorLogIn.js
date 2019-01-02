@@ -84,15 +84,6 @@ $(function() {
 
         var date = new Date(), y = date.getFullYear(), m = date.getMonth();
 
-        var thismonthresult = FilteredResults(result,new Date(y, m - 0, 1),new Date(y, m - (-1), 0));
-        var monthlytotal = GetTotalCount(thismonthresult);
-
-        var lastmonthresult = FilteredResults(result,new Date(y, m - 1, 1),new Date(y, m - 0, 0));
-        var lastmonthtotal = GetTotalCount(lastmonthresult);
-
-        var last2monthresult = FilteredResults(result,new Date(y, m - 2, 1),new Date(y, m - 1, 0));
-        var last2monthtotal = GetTotalCount(last2monthresult);
-
         var MonthWiseReport = [];
         for (var i = 0; i < 3; i++) {
             var downloadresult = FilteredResults(result, new Date(y, m - i, 1), new Date(y, m - (i - 1)));
@@ -112,14 +103,8 @@ $(function() {
 
         totalentry.sort(function(a,b){
             return b.db_date-a.db_date;
-        });
-   
-   $("#monthlytotal").append(monthlytotal);     
-   $("#monthlytotalUser").append(thismonthresult.length);
-   $("#lastmonthtotal").append(lastmonthtotal);     
-   $("#lastmonthtotalUser").append(lastmonthresult.length); 
-   $("#last2monthtotal").append(last2monthtotal);
-   $("#last2monthtotalUser").append(last2monthresult.length);
+        });   
+  
    $("#todaytotal").append(todaytotal);
    $("#todaytotalUser").append(todayUser);
    $("#totalCount").append(total);
