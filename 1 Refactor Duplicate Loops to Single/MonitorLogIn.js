@@ -131,6 +131,10 @@ $(function() {
 
 });
 
+function Sum(total, data) {
+  return total + data.value;
+}
+
 function GetTotalCount(results)
 {
     var total = 0;
