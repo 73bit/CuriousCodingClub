@@ -137,13 +137,7 @@ function Sum(total, data) {
 
 function GetTotalCount(results)
 {
-    var total = 0;
-    if (results.length) {
-        results.forEach(function (data) {
-            total += data.value;
-        });
-    }
-    return total;
+    return results.reduce(Sum, 0);
 }
 
 function FilteredResults(result, startDate, endDate)
